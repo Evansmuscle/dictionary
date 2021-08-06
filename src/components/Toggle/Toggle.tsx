@@ -3,10 +3,12 @@ import React from 'react';
 
 const Toggle = () => {
   return (
-    <label className='switch'>
-      <input type='checkbox' />
-      <span className='slider'></span>
-    </label>
+    <div className='toggleWrapper'>
+      <label className='switch'>
+        <input type='checkbox' />
+        <span className='slider round'></span>
+      </label>
+    </div>
   );
 };
 
