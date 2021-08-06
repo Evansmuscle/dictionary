@@ -1,0 +1,14 @@
+.selectWrapper {
+  grid-column: 3 / 3;
+  width: 100%;
+}
+
+.select {
+  background-color: var(--background-color);
+  border: none;
+  border-bottom: 1px solid silver;
+  outline: none;
+  color: rgb(210, 210, 210);
+  font-size: 1rem;
+  margin-top: 0.2rem;
+}
