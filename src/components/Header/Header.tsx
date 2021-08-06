@@ -1,7 +1,8 @@
+import './Header.css';
 import React from 'react';
 
 const Header = () => {
-  return <div></div>;
+  return <header className='header'>Dictionary</header>;
 };
 
 export default Header;

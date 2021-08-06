@@ -1,0 +1,22 @@
+:root {
+  --background-color: rgb(42, 44, 54);
+  --font-color: rgb(214, 213, 214);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--background-color);
+  color: var(--font-color);
+}

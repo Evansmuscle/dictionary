@@ -1,3 +1,3 @@
-import Header from './Header';
+import Meaning_Box from './Meaning_Box';
 
-export default Header;
+export default Meaning_Box;
