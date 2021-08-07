@@ -1,5 +1,7 @@
 .meaningWrapper {
-  padding: 2rem;
+  padding: 1rem;
   background-color: whitesmoke;
   border-radius: 10px;
+  color: black;
+  font-weight: 300;
 }

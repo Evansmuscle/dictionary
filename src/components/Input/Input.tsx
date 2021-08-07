@@ -10,7 +10,9 @@ interface InputProps {
 const Input: React.FC<InputProps> = ({ placeholder, label, name }) => {
   return (
     <div className='inputWrapper'>
-      <label htmlFor={name}>{label}</label>
+      <label htmlFor={name} className='label'>
+        {label}
+      </label>
       <input
         type='search'
         name={name}
