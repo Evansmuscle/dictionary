@@ -1,3 +1,5 @@
 export enum ActionTypes {
   SEARCH_ACTION = 'SEARCH_ACTION',
+  ENTER_WORD = 'ENTER_WORD',
+  LANGUAGE_SELECT = 'LANGUAGE_SELECT',
 }

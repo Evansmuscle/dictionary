@@ -1,13 +1,13 @@
-import './MeaningBox.css';
+import './MeaningCell.css';
 import React from 'react';
 
-interface MeaningBoxProps {
+interface MeaningProps {
   meaning: string;
   example: string;
   synonyms: string;
 }
 
-const MeaningBox: React.FC<MeaningBoxProps> = ({
+const MeaningCell: React.FC<MeaningProps> = ({
   meaning,
   example,
   synonyms,
@@ -26,4 +26,4 @@ const MeaningBox: React.FC<MeaningBoxProps> = ({
   );
 };
 
-export default MeaningBox;
+export default MeaningCell;

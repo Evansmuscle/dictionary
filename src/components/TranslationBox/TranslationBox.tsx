@@ -1,12 +1,17 @@
 import './TranslationBox.css';
 import React from 'react';
-import PronounciationAudio from '../PronounciationAudio';
-import MeaningBox from '../MeaningBox/MeaningBox';
+import PronounciationCell from '../PronounciationCell';
+import MeaningBox from '../MeaningCell/MeaningCell';
+import { useDispatch, useSelector } from 'react-redux';
+import { SearchInfo } from '../../types';
 
 const TranslationBox = () => {
+  const wordInfo = useSelector((state: SearchInfo[]) => state);
+  const dispatch = useDispatch();
+
   return (
     <div className='translationWrapper'>
-      <PronounciationAudio source='biseyler' />
+      <PronounciationCell source='biseyler' />
       <MeaningBox
         meaning='Test meaning'
         example='test example'

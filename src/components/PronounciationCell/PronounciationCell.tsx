@@ -1,11 +1,11 @@
-import './PronounciationAudio.css';
+import './PronounciationCell.css';
 import React from 'react';
 
 interface PronounciationProps {
   source: string;
 }
 
-const Pronounciation_Audio: React.FC<PronounciationProps> = ({ source }) => {
+const PronounciationCell: React.FC<PronounciationProps> = ({ source }) => {
   return (
     <div className='audioWrapper'>
       <audio controls>
@@ -15,4 +15,4 @@ const Pronounciation_Audio: React.FC<PronounciationProps> = ({ source }) => {
   );
 };
 
-export default Pronounciation_Audio;
+export default PronounciationCell;
