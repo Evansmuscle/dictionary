@@ -3,12 +3,20 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
-import { store } from './state/reducers';
 import App from './components/App';
+import configureStore from './state/store';
+
+const store = configureStore();
+const rootElement = document.getElementById('root');
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
   </Provider>,
-  document.getElementById('root')
+  rootElement
 );

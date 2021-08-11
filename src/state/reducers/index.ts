@@ -1,10 +1,7 @@
-import { applyMiddleware, combineReducers, createStore } from 'redux';
-import thunk from 'redux-thunk';
+import { combineReducers } from 'redux';
 
-import { searchReducer } from './searchReducer';
+import dictionaryReducer from './dictionaryReducer';
 
-const rootReducer = combineReducers({
-  search: searchReducer,
+export const rootReducer = combineReducers({
+  dictionary: dictionaryReducer,
 });
-
-export const store = createStore(rootReducer, applyMiddleware(thunk));

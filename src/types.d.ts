@@ -1,29 +1,27 @@
-export interface Meaning {
+interface Meaning {
   partOfSpeech: string;
-  definition: string;
-  example: string;
+  definitions: {
+    definition: string;
+    example: string;
+    synonyms?: string[];
+  }[];
 }
 
-export interface Word {
-  word: string;
+interface Phonetics {
+  test: string;
   audio: string;
-  meanings: Meaning[];
 }
 
 export interface SearchInfo {
   info?: {
-    word: string;
-    phonetics: {
-      test: string;
-      audio: string;
-    }[];
-    meanings: {
-      partOfSpeech: string;
-      definitions: {
-        definition: string;
-        example: string;
-        synonyms?: string[];
-      }[];
-    }[];
+    word?: string;
+    phonetics?: Phonetics[];
+    meanings?: Meaning[];
   };
 }
+
+export type AppState = {
+  wordInfo: SearchInfo[];
+  searchWord: string;
+  language: string;
+};

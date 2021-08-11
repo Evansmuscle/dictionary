@@ -11,8 +11,7 @@ const Select: React.FC<SelectProps> = ({ placeholder, label, name }) => {
   return (
     <div className='selectWrapper'>
       <select className='select'>
-        <option>Test option 1</option>
-        <option>Test option 2</option>
+        <option>en</option>
       </select>
     </div>
   );
