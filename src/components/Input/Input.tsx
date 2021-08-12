@@ -23,9 +23,8 @@ const Input: React.FC<InputProps> = ({ placeholder, label, name }) => {
   );
 
   useEffect(() => {
-    // submitWord();
-    dispatch(enterWord(input));
-  }, [input, dispatch]);
+    submitWord();
+  }, [input, submitWord]);
 
   const onChange: ChangeEventHandler<HTMLInputElement> = (
     event: ChangeEvent<HTMLInputElement>

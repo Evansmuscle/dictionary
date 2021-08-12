@@ -1,5 +1,7 @@
 import { AxiosResponse } from 'axios';
 import { Dispatch } from 'react';
+import { ThunkAction } from 'redux-thunk';
+import { RootState } from '../..';
 import { SearchInfo } from '../../types';
 import { axiosInstance } from '../../utils/axios/dictionary';
 import { ActionTypes } from '../action-types';
@@ -19,10 +21,17 @@ export interface SearchAction {
   payload: SearchInfo[];
 }
 
+export type AppThunk<ReturnType = void> = ThunkAction<
+  ReturnType,
+  RootState,
+  unknown,
+  SearchAction
+>;
+
 export type Actions = WordEnterAction | LanguageSelectAction | SearchAction;
 
 export const search =
-  (searchWord: string, language: string) =>
+  (searchWord: string, language: string): AppThunk =>
   async (dispatch: Dispatch<SearchAction>) => {
     const results: AxiosResponse<SearchInfo[]> = await axiosInstance.get(
       `/${language}/${searchWord}`
@@ -30,7 +39,7 @@ export const search =
     dispatch({
       type: ActionTypes.SEARCH_ACTION,
       payload: results.data,
-    });
+    } as const);
   };
 
 export const enterWord = (enteredWord: string): WordEnterAction => {
