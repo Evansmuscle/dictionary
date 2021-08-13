@@ -6,27 +6,25 @@ import { ActionTypes } from '../action-types';
 const initialState: AppState = {
   wordInfo: [
     {
-      info: {
-        word: '',
-        meanings: [
-          {
-            partOfSpeech: '',
-            definitions: [
-              {
-                definition: '',
-                example: '',
-                synonyms: [''],
-              },
-            ],
-          },
-        ],
-        phonetics: [
-          {
-            text: '',
-            audio: '',
-          },
-        ],
-      },
+      word: '',
+      meanings: [
+        {
+          partOfSpeech: '',
+          definitions: [
+            {
+              definition: '',
+              example: '',
+              synonyms: [''],
+            },
+          ],
+        },
+      ],
+      phonetics: [
+        {
+          text: '',
+          audio: '',
+        },
+      ],
     },
   ],
   searchWord: '',

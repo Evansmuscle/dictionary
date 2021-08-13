@@ -39,7 +39,7 @@ export const search =
     dispatch({
       type: ActionTypes.SEARCH_ACTION,
       payload: results.data,
-    } as const);
+    });
   };
 
 export const enterWord = (enteredWord: string): WordEnterAction => {

@@ -13,10 +13,10 @@ const TranslationBox = () => {
   const language = useAppSelector((state) => state.dictionary.language);
   const searchedInfo = useAppSelector((state) => state.dictionary.wordInfo);
 
-  // const [audioSource, setAudioSource] = useState('');
-  // const [meaning, setMeaning] = useState('');
-  // const [example, setExample] = useState('');
-  // const [synonym, setSynonym] = useState('');
+  const [audioSource, setAudioSource] = useState('');
+  const [meaning, setMeaning] = useState('');
+  const [example, setExample] = useState('');
+  const [synonym, setSynonym] = useState<string[]>(['']);
 
   const dispatch = useDispatch();
 
@@ -27,17 +27,27 @@ const TranslationBox = () => {
 
   useEffect(() => {
     makeSearch();
-    console.log(searchedInfo, wordEntered, language);
   }, [wordEntered, makeSearch, language]);
+
+  useEffect(() => {
+    const { meanings, phonetics } = searchedInfo[0];
+    meanings &&
+      meanings[0].definitions &&
+      setMeaning(meanings[0].definitions[0].definition);
+    meanings &&
+      meanings[0].definitions &&
+      setExample(meanings[0].definitions[0].example);
+    meanings &&
+      meanings[0].definitions &&
+      meanings[0].definitions[0].synonyms &&
+      setSynonym(meanings[0].definitions[0].synonyms);
+    phonetics && phonetics[0].audio && setAudioSource(phonetics[0].audio);
+  }, [searchedInfo]);
 
   return (
     <div className='translationWrapper'>
-      <PronounciationCell source={'biseyler'} />
-      <MeaningBox
-        meaning='Test meaning'
-        example='test example'
-        synonyms='example synonym'
-      />
+      <PronounciationCell source={audioSource} />
+      <MeaningBox meaning={meaning} example={example} synonyms={synonym} />
     </div>
   );
 };

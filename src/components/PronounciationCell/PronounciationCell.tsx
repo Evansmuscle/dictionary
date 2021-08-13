@@ -1,5 +1,6 @@
 import './PronounciationCell.css';
-import React from 'react';
+import React, { useState } from 'react';
+import ReactAudioPlayer from 'react-audio-player';
 
 interface PronounciationProps {
   source: string;
@@ -8,9 +9,7 @@ interface PronounciationProps {
 const PronounciationCell: React.FC<PronounciationProps> = ({ source }) => {
   return (
     <div className='audioWrapper'>
-      <audio controls>
-        <source src={source} type='audio/mp3' />
-      </audio>
+      <ReactAudioPlayer src={source} autoPlay controls />
     </div>
   );
 };

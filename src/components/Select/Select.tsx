@@ -67,7 +67,7 @@ const Select: React.FC<SelectProps> = ({ placeholder, label, name }) => {
 
   return (
     <div className='selectWrapper'>
-      <label>{label}</label>
+      <label className='labelSelect'>{label}</label>
       <select className='select' onChange={onChangeHandler}>
         {languageList.map((language: string, index: number) => {
           const languageValue = languageAbbrSet[index];

@@ -13,11 +13,9 @@ interface Phonetics {
 }
 
 export interface SearchInfo {
-  info: {
-    word?: string;
-    phonetics?: Phonetics[];
-    meanings?: Meaning[];
-  };
+  word: string;
+  phonetics: Phonetics[];
+  meanings: Meaning[];
 }
 
 export type AppState = {

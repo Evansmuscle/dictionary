@@ -14,5 +14,8 @@
   margin-top: 0.2rem;
   padding: 0.2rem;
   width: 16rem;
-  margin-top: 1.25rem;
+}
+
+.labelSelect {
+  margin-left: 0.45rem;
 }
