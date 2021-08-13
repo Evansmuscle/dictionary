@@ -1,5 +1,7 @@
 import './Select.css';
-import React from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { useDispatch } from 'react-redux';
+import { languageSelected } from '../../state/action-creators';
 
 interface SelectProps {
   placeholder: string;
@@ -8,10 +10,73 @@ interface SelectProps {
 }
 
 const Select: React.FC<SelectProps> = ({ placeholder, label, name }) => {
+  const [language, setLanguage] = useState<string>('en');
+
+  const dispatch = useDispatch();
+
+  const dispatchLanguage = useCallback(
+    () => dispatch(languageSelected(language)),
+    [dispatch, language]
+  );
+
+  useEffect(() => {
+    dispatchLanguage();
+  }, [dispatchLanguage]);
+
+  const languageList = [
+    'English',
+    'French',
+    'Hindi',
+    'Arabic',
+    'Spanish',
+    'Japanese',
+    'Czech',
+    'Dutch',
+    'Slovak',
+    'Russian',
+    'German',
+    'Italian',
+    'Korean',
+    'Brazilian Portuguese',
+    'Turkish',
+  ];
+
+  const languageAbbrSet = [
+    'en',
+    'fr',
+    'hi',
+    'ar',
+    'es',
+    'ja',
+    'cs',
+    'nl',
+    'sk',
+    'ru',
+    'de',
+    'it',
+    'ko',
+    'pt-BR',
+    'tr',
+  ];
+
+  const onChangeHandler: React.ChangeEventHandler = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    setLanguage(event.currentTarget.value);
+  };
+
   return (
     <div className='selectWrapper'>
-      <select className='select'>
-        <option>en</option>
+      <label>{label}</label>
+      <select className='select' onChange={onChangeHandler}>
+        {languageList.map((language: string, index: number) => {
+          const languageValue = languageAbbrSet[index];
+          return (
+            <option key={language} value={languageValue}>
+              {language}
+            </option>
+          );
+        })}
       </select>
     </div>
   );

@@ -8,12 +8,12 @@ const Options = () => {
     <div className='Options'>
       <Input
         placeholder='Enter the word here'
-        label='Search a Word'
+        label='Search a language'
         name='word'
       />
       <Select
         placeholder='Select language from here'
-        label='Please select the language of the word'
+        label='Select a language'
         name='language'
       />
     </div>

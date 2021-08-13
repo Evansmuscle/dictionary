@@ -1,8 +1,8 @@
 import './TranslationBox.css';
-import React from 'react';
+import React, { useState } from 'react';
 import PronounciationCell from '../PronounciationCell';
 import MeaningBox from '../MeaningCell/MeaningCell';
-import { useAppDispatch, useAppSelector } from '../../utils/hooks';
+import { useAppSelector } from '../../utils/hooks';
 import { useEffect } from 'react';
 import { search } from '../../state/action-creators';
 import { useCallback } from 'react';
@@ -13,21 +13,26 @@ const TranslationBox = () => {
   const language = useAppSelector((state) => state.dictionary.language);
   const searchedInfo = useAppSelector((state) => state.dictionary.wordInfo);
 
+  // const [audioSource, setAudioSource] = useState('');
+  // const [meaning, setMeaning] = useState('');
+  // const [example, setExample] = useState('');
+  // const [synonym, setSynonym] = useState('');
+
   const dispatch = useDispatch();
 
   const makeSearch = useCallback(
-    async () => dispatch(search(wordEntered, 'en')),
-    [dispatch, wordEntered]
+    () => dispatch(search(wordEntered, language)),
+    [dispatch, wordEntered, language]
   );
 
   useEffect(() => {
     makeSearch();
-  }, [wordEntered, makeSearch]);
+    console.log(searchedInfo, wordEntered, language);
+  }, [wordEntered, makeSearch, language]);
 
   return (
     <div className='translationWrapper'>
-      <h1>{}</h1>
-      <PronounciationCell source='biseyler' />
+      <PronounciationCell source={'biseyler'} />
       <MeaningBox
         meaning='Test meaning'
         example='test example'

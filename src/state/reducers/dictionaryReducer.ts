@@ -6,11 +6,31 @@ import { ActionTypes } from '../action-types';
 const initialState: AppState = {
   wordInfo: [
     {
-      info: {},
+      info: {
+        word: '',
+        meanings: [
+          {
+            partOfSpeech: '',
+            definitions: [
+              {
+                definition: '',
+                example: '',
+                synonyms: [''],
+              },
+            ],
+          },
+        ],
+        phonetics: [
+          {
+            text: '',
+            audio: '',
+          },
+        ],
+      },
     },
   ],
   searchWord: '',
-  language: '',
+  language: 'en',
 };
 
 const dictionaryReducer: Reducer<AppState, Actions> = (

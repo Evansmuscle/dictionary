@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 
 import { enterWord } from '../../state/action-creators';
 import { useCallback } from 'react';
+import { useDebounce } from '../../utils/hooks/useDebounce';
 
 interface InputProps {
   placeholder: string;
@@ -14,17 +15,18 @@ interface InputProps {
 
 const Input: React.FC<InputProps> = ({ placeholder, label, name }) => {
   const [input, setInput] = useState('');
+  const debouncedSearchTerm: string = useDebounce<string>(input, 500);
 
   const dispatch = useDispatch();
 
   const submitWord = useCallback(
-    () => dispatch(enterWord(input)),
-    [dispatch, input]
+    () => dispatch(enterWord(debouncedSearchTerm)),
+    [dispatch, debouncedSearchTerm]
   );
 
   useEffect(() => {
     submitWord();
-  }, [input, submitWord]);
+  }, [debouncedSearchTerm, submitWord]);
 
   const onChange: ChangeEventHandler<HTMLInputElement> = (
     event: ChangeEvent<HTMLInputElement>

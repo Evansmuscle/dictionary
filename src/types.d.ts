@@ -8,12 +8,12 @@ interface Meaning {
 }
 
 interface Phonetics {
-  test: string;
+  text: string;
   audio: string;
 }
 
 export interface SearchInfo {
-  info?: {
+  info: {
     word?: string;
     phonetics?: Phonetics[];
     meanings?: Meaning[];
