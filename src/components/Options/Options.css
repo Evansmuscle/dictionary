@@ -4,3 +4,12 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
+
+@media screen and (max-width: 900px) {
+  .Options {
+    grid-template-columns: 1fr;
+    grid-template-rows: 100px 100px;
+    place-content: center;
+    grid-row: 2 / 2;
+  }
+}

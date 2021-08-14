@@ -21,6 +21,11 @@ export interface SearchAction {
   payload: SearchInfo[];
 }
 
+export interface SetDarkModeAction {
+  type: ActionTypes.SET_DARK_MODE;
+  payload: boolean;
+}
+
 export type AppThunk<ReturnType = void> = ThunkAction<
   ReturnType,
   RootState,
@@ -28,7 +33,11 @@ export type AppThunk<ReturnType = void> = ThunkAction<
   SearchAction
 >;
 
-export type Actions = WordEnterAction | LanguageSelectAction | SearchAction;
+export type Actions =
+  | WordEnterAction
+  | LanguageSelectAction
+  | SearchAction
+  | SetDarkModeAction;
 
 export const search =
   (searchWord: string, language: string): AppThunk =>
@@ -53,5 +62,12 @@ export const languageSelected = (language: string): LanguageSelectAction => {
   return {
     type: ActionTypes.LANGUAGE_SELECT,
     payload: language,
+  };
+};
+
+export const setDarkMode = (on: boolean): SetDarkModeAction => {
+  return {
+    type: ActionTypes.SET_DARK_MODE,
+    payload: on,
   };
 };

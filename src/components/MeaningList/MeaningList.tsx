@@ -9,17 +9,14 @@ interface MeaningListProps {
 }
 
 const MeaningList: React.FC<MeaningListProps> = ({ meanings }) => {
-  useEffect(() => {
-    console.log(meanings);
-  }, [meanings]);
-
   return (
     <div>
       {meanings.map((meaning: Meaning, index: number) => {
         return (
           meaning.definitions &&
-          meaning.definitions[0] && (
+          meaning.definitions[0] !== null && (
             <MeaningCell
+              key={index}
               meaning={
                 meaning.definitions[0].definition &&
                 meaning.definitions[0].definition

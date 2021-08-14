@@ -21,3 +21,10 @@
 .label {
   margin-left: 0.2rem;
 }
+
+@media screen and (max-width: 900px) {
+  .inputWrapper {
+    grid-row: 1 / 2;
+    transform: translateY(50%);
+  }
+}

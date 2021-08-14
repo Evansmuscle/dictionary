@@ -6,3 +6,8 @@
   grid-template-rows: repeat(6, 1fr);
   place-content: center;
 }
+
+.App[data-theme='light'] {
+  background-color: var(--font-color);
+  color: var(--background-color);
+}

@@ -39,6 +39,7 @@ const TranslationBox = () => {
     <div className='translationWrapper'>
       <PronounciationCell source={audioSource} />
       <MeaningList meanings={meaningsInfo} />
+      <div className='scrollbar' id='slim-bar'></div>
     </div>
   );
 };

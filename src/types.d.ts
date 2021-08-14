@@ -22,4 +22,5 @@ export type AppState = {
   wordInfo: SearchInfo[];
   searchWord: string;
   language: string;
+  darkMode: boolean;
 };

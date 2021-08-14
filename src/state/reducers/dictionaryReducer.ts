@@ -29,6 +29,7 @@ const initialState: AppState = {
   ],
   searchWord: '',
   language: 'en',
+  darkMode: true,
 };
 
 const dictionaryReducer: Reducer<AppState, Actions> = (
@@ -44,6 +45,9 @@ const dictionaryReducer: Reducer<AppState, Actions> = (
 
     case ActionTypes.SEARCH_ACTION:
       return { ...state, wordInfo: action.payload };
+
+    case ActionTypes.SET_DARK_MODE:
+      return { ...state, darkMode: action.payload };
 
     default:
       return state;
