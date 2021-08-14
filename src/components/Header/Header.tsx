@@ -1,8 +1,23 @@
 import './Header.css';
 import React, { useRef } from 'react';
+import { useEffect } from 'react';
 
 const Header = () => {
-  const svgRef = useRef<React.SVGProps<SVGSVGElement> | null>(null);
+  // const svgRef = useRef<SVGSVGElement | null>(null);
+  // let svgPathList: NodeListOf<SVGPathElement> | undefined;
+
+  // useEffect(() => {
+  //   const lengthArray: number[] = [];
+  //   let length: number;
+
+  //   svgPathList = svgRef.current?.childNodes as NodeListOf<SVGPathElement>;
+  //   svgPathList?.forEach((svgPath: SVGPathElement) => {
+  //     length = svgPath.getTotalLength();
+  //     lengthArray.push(length);
+  //   });
+
+  //   console.log(lengthArray);
+  // }, [svgRef]);
 
   return (
     <React.Fragment>
@@ -13,6 +28,7 @@ const Header = () => {
         fill='none'
         xmlns='http://www.w3.org/2000/svg'
         id='header'
+        // ref={svgRef}
       >
         <path
           d='M2.48987 7.2H42.3779C52.8419 7.2 62.1059 9.36 70.1699 13.68C78.3299 18 84.6659 24 89.1779 31.68C93.6899 39.264 95.9459 47.904 95.9459 57.6C95.9459 67.296 93.6899 75.984 89.1779 83.664C84.6659 91.248 78.3299 97.2 70.1699 101.52C62.1059 105.84 52.8419 108 42.3779 108H2.48987V7.2ZM41.8019 101.376C51.1139 101.376 59.3219 99.552 66.4259 95.904C73.5299 92.16 79.0019 86.976 82.8419 80.352C86.6819 73.728 88.6019 66.144 88.6019 57.6C88.6019 49.056 86.6819 41.472 82.8419 34.848C79.0019 28.224 73.5299 23.088 66.4259 19.44C59.3219 15.696 51.1139 13.824 41.8019 13.824H9.83387V101.376H41.8019Z'
