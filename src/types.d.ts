@@ -3,7 +3,7 @@ interface Meaning {
   definitions: {
     definition: string;
     example: string;
-    synonyms?: string[];
+    synonyms: string[];
   }[];
 }
 

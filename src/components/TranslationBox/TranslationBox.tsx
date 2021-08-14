@@ -7,6 +7,8 @@ import { useEffect } from 'react';
 import { search } from '../../state/action-creators';
 import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
+import { Meaning } from '../../types';
+import MeaningList from '../MeaningList';
 
 const TranslationBox = () => {
   const wordEntered = useAppSelector((state) => state.dictionary.searchWord);
@@ -14,9 +16,7 @@ const TranslationBox = () => {
   const searchedInfo = useAppSelector((state) => state.dictionary.wordInfo);
 
   const [audioSource, setAudioSource] = useState('');
-  const [meaning, setMeaning] = useState('');
-  const [example, setExample] = useState('');
-  const [synonym, setSynonym] = useState<string[]>(['']);
+  const [meaningsInfo, setMeaningsInfo] = useState<Meaning[] | []>([]);
 
   const dispatch = useDispatch();
 
@@ -31,23 +31,14 @@ const TranslationBox = () => {
 
   useEffect(() => {
     const { meanings, phonetics } = searchedInfo[0];
-    meanings &&
-      meanings[0].definitions &&
-      setMeaning(meanings[0].definitions[0].definition);
-    meanings &&
-      meanings[0].definitions &&
-      setExample(meanings[0].definitions[0].example);
-    meanings &&
-      meanings[0].definitions &&
-      meanings[0].definitions[0].synonyms &&
-      setSynonym(meanings[0].definitions[0].synonyms);
+    meanings && setMeaningsInfo(meanings);
     phonetics && phonetics[0].audio && setAudioSource(phonetics[0].audio);
   }, [searchedInfo]);
 
   return (
     <div className='translationWrapper'>
       <PronounciationCell source={audioSource} />
-      <MeaningBox meaning={meaning} example={example} synonyms={synonym} />
+      <MeaningList meanings={meaningsInfo} />
     </div>
   );
 };
