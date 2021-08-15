@@ -3,6 +3,11 @@
   --font-color: rgb(214, 213, 214);
 }
 
+[data-theme='light'] {
+  --background-color: rgb(214, 213, 214);
+  --font-color: rgb(42, 44, 54);
+}
+
 *,
 *::before,
 *::after {
@@ -17,6 +22,4 @@ html {
 
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: var(--background-color);
-  color: var(--font-color);
 }

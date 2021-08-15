@@ -71,7 +71,7 @@
     fill: transparent;
   }
   to {
-    fill: white;
+    fill: var(--font-color);
   }
 }
 

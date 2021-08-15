@@ -2,6 +2,7 @@ import './Select.css';
 import React, { useState, useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { languageSelected } from '../../state/action-creators';
+import { useAppSelector } from '../../utils/hooks';
 
 interface SelectProps {
   placeholder: string;
@@ -10,6 +11,7 @@ interface SelectProps {
 }
 
 const Select: React.FC<SelectProps> = ({ placeholder, label, name }) => {
+  const darkMode = useAppSelector((state) => state.dictionary.darkMode);
   const [language, setLanguage] = useState<string>('en');
 
   const dispatch = useDispatch();
@@ -66,7 +68,7 @@ const Select: React.FC<SelectProps> = ({ placeholder, label, name }) => {
   };
 
   return (
-    <div className='selectWrapper'>
+    <div className={`selectWrapper`}>
       <label className='labelSelect'>{label}</label>
       <select className='select' onChange={onChangeHandler}>
         {languageList.map((language: string, index: number) => {

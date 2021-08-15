@@ -6,9 +6,9 @@
 .input {
   background-color: var(--background-color);
   border: none;
-  border-bottom: 1px solid silver;
+  border-bottom: 1px solid var(--font-color);
   outline: none;
-  color: rgb(210, 210, 210);
+  color: var(--font-color);
   font-size: 1rem;
   margin-top: 0.2rem;
   padding: 0.2rem;
@@ -20,6 +20,7 @@
 
 .label {
   margin-left: 0.2rem;
+  color: var(--font-color);
 }
 
 @media screen and (max-width: 900px) {
