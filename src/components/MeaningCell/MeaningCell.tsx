@@ -1,5 +1,5 @@
-import './MeaningCell.css';
-import React from 'react';
+import "./MeaningCell.css";
+import React from "react";
 
 interface MeaningProps {
   meaning: string;
@@ -13,9 +13,9 @@ const MeaningCell: React.FC<MeaningProps> = ({
   synonyms,
 }) => {
   return (
-    <div className='meaningWrapper'>
+    <div className={`${meaning && "meaningWrapper"}`}>
       {meaning && (
-        <h4 className='meaning'>
+        <h4 className="meaning">
           Meaning: {meaning[0].toUpperCase() + meaning.slice(1)}
         </h4>
       )}
@@ -24,7 +24,7 @@ const MeaningCell: React.FC<MeaningProps> = ({
           <br />
           <hr />
           <br />
-          <h4 className='meaning'>
+          <h4 className="meaning">
             Example: <span>{example[0].toUpperCase() + example.slice(1)}</span>
           </h4>
         </React.Fragment>
@@ -34,8 +34,8 @@ const MeaningCell: React.FC<MeaningProps> = ({
           <br />
           <hr />
           <br />
-          <h4 className='meaning'>
-            Synonyms:{' '}
+          <h4 className="meaning">
+            Synonyms:{" "}
             {synonyms.map((synonym) => {
               return <span>{synonym}, </span>;
             })}

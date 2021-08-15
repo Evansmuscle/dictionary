@@ -1,11 +1,11 @@
-import './Input.css';
-import React, { ChangeEvent, ChangeEventHandler, useState } from 'react';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import "./Input.css";
+import React, { ChangeEvent, ChangeEventHandler, useState } from "react";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 
-import { enterWord } from '../../state/action-creators';
-import { useCallback } from 'react';
-import { useDebounce } from '../../utils/hooks/useDebounce';
+import { enterWord } from "../../state/action-creators";
+import { useCallback } from "react";
+import { useDebounce } from "../../utils/hooks/useDebounce";
 
 interface InputProps {
   placeholder: string;
@@ -14,7 +14,7 @@ interface InputProps {
 }
 
 const Input: React.FC<InputProps> = ({ placeholder, label, name }) => {
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("");
   const debouncedSearchTerm: string = useDebounce<string>(input, 500);
 
   const dispatch = useDispatch();
@@ -35,15 +35,15 @@ const Input: React.FC<InputProps> = ({ placeholder, label, name }) => {
   };
 
   return (
-    <div className='inputWrapper'>
-      <label htmlFor={name} className='label'>
+    <div className="inputWrapper">
+      <label htmlFor={name} className="label">
         {label}
       </label>
       <input
-        type='search'
+        type="search"
         name={name}
         placeholder={placeholder}
-        className='input'
+        className="input"
         value={input}
         onChange={onChange}
       />

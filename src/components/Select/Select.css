@@ -17,7 +17,6 @@
 
 .labelSelect {
   margin-left: 0.45rem;
-  transform: translate(-10px, -10px);
   color: var(--font-color);
 }
 
